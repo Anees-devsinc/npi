@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="mx-auto" style="width: 1100px">
+    <%= form_with(url: search_path, method: 'get', remote: true) do %>
+      <div class="form-group">
+        <h1 class="text-center">Search NPI Data</h1>
+
+        <div class="row">
+          <div class="col-md-4">
+            version: <%= text_field_tag :version, 2.1, readonly: true, class: 'form-control' %><br/>
+            number: <%= text_field_tag :number, nil, class: 'form-control' %><br/>
+            enumeration_type: <%= text_field_tag :enumeration_type, nil, class: 'form-control' %><br/>
+            taxonomy_description: <%= text_field_tag :taxonomy_description, nil, class: 'form-control' %><br/>
+            first_name: <%= text_field_tag :first_name, nil, class: 'form-control' %><br/>
+          </div>
+          <div class="col-md-4">
+            use_first_name_alias: <%= text_field_tag :use_first_name_alias, nil, class: 'form-control' %><br/>
+            last_name : <%= text_field_tag :last_name, nil, class: 'form-control' %><br/>
+            organization_name : <%= text_field_tag :organization_name, nil, class: 'form-control' %><br/>
+            address_purpose : <%= text_field_tag :address_purpose, nil, class: 'form-control' %><br/>
+            city : <%= text_field_tag :city, nil, class: 'form-control' %><br/>
+          </div>
+          <div class="col-md-4">
+            state : <%= text_field_tag :state, nil, class: 'form-control' %><br/>
+            postal_code : <%= text_field_tag :postal_code, nil, class: 'form-control' %><br/>
+            country_code : <%= text_field_tag :country_code, nil, class: 'form-control' %><br/>
+            limit : <%= text_field_tag :limit, nil, class: 'form-control' %><br/>
+            skip : <%= text_field_tag :skip, nil, class: 'form-control' %><br/>
+          </div>
+        </div>
+      </div>
+      <%= button_tag 'Search', class: 'btn btn-success btn-block' %>
+    <% end %>
+  </div>
+  <h1 class="text-center">Listing NPI Data</h1>
+  <table class="table-bordered">
+    <thead>
+      <tr>
+        <th>number</th>
+        <th>enumeration_type</th>
+        <th>last_updated_epoch</th>
+        <th>created_epoch</th>
+        <th>name_prefix</th>
+        <th>first_ame</th>
+        <th>last_name</th>
+        <th>sole_proprietor</th>
+        <th>city</th>
+        <th>state</th>
+        <th>postal_code</th>
+        <th>telephone_number</th>
+      </tr>
+    </thead>
+    <tbody id="search">
+      <%= render partial: 'search', collection: @persons, as: :person %>
+    </tbody>
+  </table>
+</div>

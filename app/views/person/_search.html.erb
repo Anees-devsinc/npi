@@ -1,0 +1,14 @@
+<tr id=<%= "tr_#{person.npi_number}" %>>
+  <td><%= person.npi_number %></td>
+  <td><%= person.response["enumeration_type"] %></td>
+  <td><%= person.response["last_updated_epoch"] %></td>
+  <td><%= person.response["created_epoch"] %></td>
+  <td><%= person.response["basic"]["name_prefix"] %></td>
+  <td><%= person.response["basic"]["first_ame"] %></td>
+  <td><%= person.response["basic"]["last_name"] %></td>
+  <td><%= person.response["basic"]["sole_proprietor"] %></td>
+  <td><%= person.response["addresses"].first["city"] %></td>
+  <td><%= person.response["addresses"].first["state"] %></td>
+  <td><%= person.response["addresses"].first["postal_code"] %></td>
+  <td><%= person.response["addresses"].first["telephone_number"] %></td>
+</tr>

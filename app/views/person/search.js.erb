@@ -1,0 +1,7 @@
+<% @search.each do |s| %>
+  $("#tr_<%= s.npi_number %>").remove();
+<% end %>
+
+<% @search.each do |s| %>
+  $('#search').prepend("<%= j render partial: 'search', locals: { person: s } %>");
+<% end %>
